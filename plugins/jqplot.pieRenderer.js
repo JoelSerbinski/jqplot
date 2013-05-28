@@ -314,8 +314,10 @@
             }
             ctx.restore();
         }
-    
-        function doDraw (rad) {
+
+        function doDraw(rad) {
+            if (rad < 0) { return; } // BUGFIX: 05/28/2013 - Joel Serbinski
+
             // Fix for IE and Chrome that can't seem to draw circles correctly.
             // ang2 should always be <= 2 pi since that is the way the data is converted.
             // 2Pi = 6.2831853, Pi = 3.1415927
